@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 
+
+/*
+  Route: GET
+  To get all of the posts
+*/
+
 router.get('', async (req, res) => {
     try {
       const locals = {
@@ -34,6 +40,30 @@ router.get('', async (req, res) => {
     }
   
   });
+
+/* 
+   Route: GET
+   To get a single post with an ID
+*/
+
+router.get("/post/:id", async (req, res) => {
+  try {
+
+    const slug = req.params.id;
+    const data = await Post.findById({_id: slug});
+
+    const locals = {
+      title: data.title,
+      description: "Simple Blog created with NodeJs, Express & MongoDb."
+    }
+
+    res.render("post", {locals, data});
+
+  }catch(error) {
+    console.log("Error");
+  }
+});
+
 
 function insertPostData () {
       Post.insertMany([
