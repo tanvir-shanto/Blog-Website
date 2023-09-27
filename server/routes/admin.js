@@ -8,6 +8,30 @@ const jwt = require('jsonwebtoken');
 const adminLayout = '../views/layouts/admin';
 const jwtSecret = process.env.JWT_SECRET;
 
+
+/* 
+   Check Login. This middleware checks whether the user is already logged in or not by 
+   verifying the token.
+*/
+const authMiddleware = (req, res, next) => {
+  const token = req.cookies.token;
+
+  if(!token){
+    return res.status(401).json({message: 'unauthorized'});
+  }
+
+  try{
+    const decoded = jwt.verify(token, jwtSecret);
+    req.userId = decoded.userId;
+    next();
+  }catch(error) {
+    return res.status(401).json({message: 'unauthorized'});
+  }
+
+}
+
+
+
 /* 
    Route: GET
    Admin Login
@@ -59,7 +83,7 @@ router.post('/admin', async (req, res) => {
 });
 
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', authMiddleware, (req, res) => {
   res.render("admin/dashboard");
 });
 
