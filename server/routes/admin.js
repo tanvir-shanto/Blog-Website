@@ -82,9 +82,26 @@ router.post('/admin', async (req, res) => {
   }
 });
 
+/*
+    GET
+    Admin Dashboard
+*/
 
-router.get('/dashboard', authMiddleware, (req, res) => {
-  res.render("admin/dashboard");
+router.get('/dashboard', authMiddleware, async (req, res) => {
+
+  try {
+    const locals = {
+      title: "Dashboard",
+      description: "Simple Blog created with NodeJs, Express & MongoDb."
+    }
+
+    const data = await Post.find();
+    res.render("admin/dashboard", {locals, data});
+
+  } catch(error) {
+    console.log(error);
+  }
+
 });
 
 
