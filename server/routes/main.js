@@ -11,7 +11,7 @@ const Post = require('../models/Post');
 router.get('', async (req, res) => {
     try {
       const locals = {
-        title: "NodeJs Blog",
+        title: "TheReviewer",
         description: "Simple Blog created with NodeJs, Express & MongoDb."
       }
   
@@ -96,55 +96,55 @@ router.post("/search", async (req, res) => {
 });
 
 
-function insertPostData () {
+/*function insertPostData () {
       Post.insertMany([
         {
-          title: "Building APIs with Node.js",
-          body: "Learn how to use Node.js to build RESTful APIs using frameworks like Express.js"
+          title: "Call of Duty: Black Ops - A Thrilling Return to the Battlefield",
+          body: "Call of Duty: Black Ops is a triumphant return to the series' roots, delivering a thrilling single-player campaign, addictive multiplayer action, and a captivating Zombies mode. While it doesn't reinvent the wheel, it offers a polished and engaging experience that will keep both longtime fans and newcomers hooked for hours on end. If you're a fan of fast-paced, action-packed shooters, this is a must-play title."
         },
         {
-          title: "Deployment of Node.js applications",
-          body: "Understand the different ways to deploy your Node.js applications, including on-premises, cloud, and container environments..."
+          title: "Battlefield 3 - Epic Warfare on a Grand Scale",
+          body: "Battlefield 3 is a tour de force in the world of first-person shooters. It excels in delivering massive, cinematic battles with an unparalleled sense of scale and destruction. The multiplayer mode, in particular, is where the game truly shines, offering endless hours of strategic and immersive gameplay. While the single-player campaign may not be as memorable, the overall package makes Battlefield 3 a must-play for fans of military shooters looking for epic, team-based warfare."
         },
         {
-          title: "Authentication and Authorization in Node.js",
-          body: "Learn how to add authentication and authorization to your Node.js web applications using Passport.js or other authentication libraries."
+          title: "Assassin's Creed III - A Historical Epic with Mixed Results",
+          body: "Assassin's Creed III is a bold departure for the series, transporting players to a pivotal moment in American history. The historical immersion, engaging storyline, and improved gameplay mechanics make it a noteworthy addition to the franchise. While it may have suffered from some technical issues upon release, these have largely been addressed, making it a more stable experience. Fans of the series and those interested in historical settings will find much to enjoy, despite some pacing and gameplay quirks."
         },
         {
-          title: "Understand how to work with MongoDB and Mongoose",
-          body: "Understand how to work with MongoDB and Mongoose, an Object Data Modeling (ODM) library, in Node.js applications."
+          title: "Need for Speed: The Run - An Adrenaline-Pumping Cross-Country Race",
+          body: "Need for Speed: The Run takes the franchise in an intriguing direction with its narrative-driven approach to racing. The high-stakes story and cinematic presentation make for an adrenaline-pumping experience. However, the game's brevity and limited customization options may leave some players wishing for more depth. If you're a fan of fast-paced, story-driven racing games, The Run is worth a spin, but keep in mind that its focus on storytelling may come at the expense of gameplay variety."
         },
         {
-          title: "build real-time, event-driven applications in Node.js",
-          body: "Socket.io: Learn how to use Socket.io to build real-time, event-driven applications in Node.js."
+          title: "FIFA 20 - A Beautiful Game, But a Familiar Scoreline",
+          body: "FIFA 20 continues the franchise's tradition of delivering a visually stunning and realistic soccer simulation. The addition of Volta Football adds a fun and flashy twist to the gameplay, and the improved AI enhances the authenticity of matches. However, the game might feel like more of the same for those who have followed the series closely over the years. Microtransactions remain a contentious issue for some players, but for soccer enthusiasts looking for the most authentic virtual soccer experience available, FIFA 20 is still the go-to choice."
         },
         {
-          title: "Discover how to use Express.js",
-          body: "Discover how to use Express.js, a popular Node.js web framework, to build web applications."
+          title: "Call of Duty 4: Modern Warfare - A Game-Changer in FPS History",
+          body: "Call of Duty 4: Modern Warfare is a seminal title that forever changed the landscape of first-person shooters. Its gripping single-player campaign, coupled with the revolutionary multiplayer experience, set new standards for the genre. While its graphics may have aged, its gameplay and impact on the gaming industry endure. For fans of action-packed, military-themed shooters, this is a must-play title that continues to hold a special place in the hearts of gamers worldwide"
         },
         {
-          title: "Asynchronous Programming with Node.js",
-          body: "Asynchronous Programming with Node.js: Explore the asynchronous nature of Node.js and how it allows for non-blocking I/O operations."
+          title: "Grand Theft Auto V - A Crime Epic in the Heart of Los Santos",
+          body: "Grand Theft Auto V is a monumental achievement in open-world gaming. Its sprawling, meticulously crafted world, compelling characters, and dynamic gameplay make it a true masterpiece. While the mature content and hardware demands may limit its accessibility, for those who can enjoy its immersive and often satirical take on modern society, it offers an unforgettable gaming experience. GTA 5 is not just a game; it's an epic journey through the heart of a criminal underworld."
         },
         {
-          title: "Learn the basics of Node.js and its architecture",
-          body: "Learn the basics of Node.js and its architecture, how it works, and why it is popular among developers."
+          title: "Grand Theft Auto: Vice City - A Nostalgic Trip to the Neon '80s",
+          body: "Grand Theft Auto: Vice City is a nostalgic trip to a bygone era, capturing the essence of the 1980s with style and flair. The game's memorable protagonist, immersive setting, and exceptional soundtrack make it an enduring classic in the GTA series. While the graphics and controls may show their age, the gameplay and storytelling hold up remarkably well. For those looking to experience the neon-soaked streets of Vice City and relive the '80s, this game remains a must-play, even years after its initial release."
         },
         {
-          title: "NodeJs Limiting Network Traffic",
-          body: "Learn how to limit netowrk traffic."
-        },
-        {
-          title: "Learn Morgan - HTTP Request logger for NodeJs",
-          body: "Learn Morgan."
-        },
+          title: "Rocket League - The Ultimate Fusion of Soccer and Supersonic Cars",
+          body: "Rocket League is a gaming phenomenon that brilliantly marries soccer and rocket-powered cars to create a dynamic and exhilarating experience. Its accessibility and skill-based gameplay make it enjoyable for gamers of all levels, while the competitive scene ensures longevity and depth. With constant updates and cross-platform play, Rocket League has solidified its place as a modern multiplayer classic. Whether you're chasing the perfect aerial goal or simply looking for some chaotic fun with friends, this game is an absolute blast."
+        }
       ])
     }
     
-    //insertPostData();
+    //insertPostData(); */
 
 router.get("/about", (req, res) => {
     res.render('about');
+});
+
+router.get("/contact", (req, res) => {
+  res.render('contact');
 });
 
 module.exports = router;
