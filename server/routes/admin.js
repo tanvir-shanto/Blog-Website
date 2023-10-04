@@ -151,6 +151,69 @@ router.post('/add-post', authMiddleware, async (req, res) => {
 });
 
 
+/*
+    GET
+    Admin - GET Post
+*/
+
+router.get('/edit-post/:id', authMiddleware, async (req, res) => {
+
+  try {
+
+    const locals = {
+      title: "Edit Post",
+      description: "Simple Blog created with NodeJs, Express & MongoDb."
+    }
+
+    const data = await Post.findById({_id: req.params.id});
+
+    res.render('admin/edit-post',{
+      locals,
+      data,
+      layout: adminLayout
+    });
+    
+  } catch(error) {
+    console.log(error);
+  }
+
+});
+
+
+
+
+
+
+
+/*
+    POST
+    Admin - Update Post
+*/
+
+router.post('/edit-post/:id', authMiddleware, async (req, res) => {
+
+  try {
+
+    await Post.findByIdAndUpdate(req.params.id, {
+      title: req.body.title,
+      body: req.body.body,
+      updatedAt: Date.now()
+    });
+
+    res.redirect(`/edit-post/${req.params.id}`);
+    
+  } catch(error) {
+    console.log(erro);
+  }
+
+});
+
+
+
+
+
+
+
 /* 
    Route: POST
    Admin Register
