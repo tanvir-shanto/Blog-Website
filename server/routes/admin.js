@@ -203,7 +203,7 @@ router.post('/edit-post/:id', authMiddleware, async (req, res) => {
     res.redirect(`/edit-post/${req.params.id}`);
     
   } catch(error) {
-    console.log(erro);
+    console.log(error);
   }
 
 });
@@ -214,7 +214,7 @@ router.post('/edit-post/:id', authMiddleware, async (req, res) => {
  * DELETE /
  * Admin - Delete Post
 */
-router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
+router.post('/delete-post/:id', authMiddleware, async (req, res) => {
 
   try {
     await Post.deleteOne( { _id: req.params.id } );
